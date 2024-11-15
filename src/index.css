@@ -34,12 +34,7 @@ h1 {
 }
 
 
-.product-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 40px;
-}
+
 
 .product-item {
   background-color: #fff;
