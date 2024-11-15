@@ -2,6 +2,8 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import ProductList from './ProductList';
+import AddProductForm from './AddProductForm';
 
 function App() {
   const [products, setProducts] = useState([
@@ -9,67 +11,18 @@ function App() {
     { id: 2, name: 'ring', price: '$30', description: 'silver coated with gem studs' },
   ]);
 
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
 
-
-  const addProduct = () => {
-    if (name && price && description) {
-      setProducts([
-        ...products,
-        { id: products.length + 1, name, price, description },
-      ]);
-
-
-      setName('');
-      setPrice('');
-      setDescription('');
-    } else {
-      alert('input for all fields');
-    }
-  };
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <h1>Product Dashboard</h1>
+    <div>
+  
+      <ProductList products={products} />
 
     
-      <div className="product-list">
-        {products.map((product) => (
-          <div key={product.id}>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-          </div>
-        ))}
-      </div>
+      <AddProductForm addProduct={(product) => setProducts([...products, product])} />
 
-  
-      <div className="add-product-form">
-        <h2>Add a Product</h2>
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Product Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Product Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button onClick={addProduct}>Add Product</button>
-      </div>
-
-  
+ 
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -78,8 +31,21 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount(count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </div>
   );
 }
 
 export default App;
+
