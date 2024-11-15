@@ -4,32 +4,30 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 
-
-
 function App() {
   const [products, setProducts] = useState([
     { id: 1, name: 'necklace', price: '$20', description: 'gold chain with heart pendant' },
     { id: 2, name: 'ring', price: '$30', description: 'silver coated with gem studs' },
   ]);
 
-  // State for form inputs
+
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
 
-  // Function to add a new product
+  
   const addProduct = () => {
     if (name && price && description) {
       setProducts([
         ...products,
         { id: products.length + 1, name, price, description },
       ]);
-      // Clear input fields after adding the product
+
       setName('');
       setPrice('');
       setDescription('');
     } else {
-      alert('Please fill in all fields');
+      alert('Empty field');
     }
   };
 };
@@ -56,7 +54,5 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
-}
-
+  
 export default App
