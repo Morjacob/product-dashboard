@@ -1,6 +1,5 @@
-
 import React from 'react';
-import ProductItem from './ProductItem'; 
+import ProductItem from './ProductItem';
 
 const ProductList = ({ products }) => {
   return (
@@ -8,10 +7,9 @@ const ProductList = ({ products }) => {
       <h2>Product List</h2>
       <ul>
         {products.map((product) => (
-          <ProductItem
-            key={product.id} 
-            product={product} 
-          />
+          <li key={product.id}>
+            <ProductItem product={product} />
+          </li>
         ))}
       </ul>
     </div>
