@@ -26,7 +26,7 @@ function App() {
       setPrice('');
       setDescription('');
     } else {
-      alert('Empty field');
+      alert('input for all fields');
     }
   };
 
