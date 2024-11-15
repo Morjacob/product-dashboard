@@ -9,7 +9,7 @@ const AddProductForm = ({ addProduct }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Generate a new product with id, name, price, and description as an object
+// Generate a new product with id, name, price, and description as an object
     const newProduct = {
       id: Date.now(), 
       name,
@@ -17,10 +17,10 @@ const AddProductForm = ({ addProduct }) => {
       description
     };
 
-    // Call the addProduct function passed from the parent component (App)
+
     addProduct(newProduct);
 
-    // Clear the form fields after submission
+// Resets the form for a new product
     setName('');
     setPrice('');
     setDescription('');

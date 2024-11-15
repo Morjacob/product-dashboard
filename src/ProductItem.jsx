@@ -1,5 +1,8 @@
+//Task 4- Create the ProductItem Component
+
 import React from 'react';
 
+//function to show details of one product
 const ProductItem = ({ product }) => {
   const { name, price, description } = product;
 
